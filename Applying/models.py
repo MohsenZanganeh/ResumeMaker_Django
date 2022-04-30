@@ -5,5 +5,6 @@ from Employee.models import Job
 class Applied_Job(models.Model):
     job = models.ForeignKey(Job,on_delete=models.CASCADE)
     candidate = models.ForeignKey(Candidate,on_delete=models.CASCADE)
+    is_accepted = models.BooleanField(default=False)
     def __str__(self):
         return self.job
