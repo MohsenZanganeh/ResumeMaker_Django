@@ -17,7 +17,6 @@ class Applied_jobViewSet(CreateModelMixin,UpdateModelMixin,RetrieveModelMixin,Li
         if self.request.user.user_type == 'E':
             employee = Employee.objects.get(user_id=self.request.user.id)
             job = Job.objects.filter(Employee_id = employee.id).values_list('pk', flat=True)
-            print('=====list(job):',job)
 
             return Applied_Job.objects.filter(job__in = job)
         
